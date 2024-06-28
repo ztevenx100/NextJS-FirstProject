@@ -20,7 +20,7 @@ export default async function InvoicesPage({
     const totalPages = await fetchInvoicesPages(query);
 
     return (
-    <div className="w-full">
+    <article className="w-full">
         <header className="flex w-full items-center justify-between">
             <h1 className={`${lusitana.className} text-2xl`}>Invoices</h1>
         </header>
@@ -28,12 +28,12 @@ export default async function InvoicesPage({
             <Search placeholder="Search invoices..." />
             <CreateInvoice />
         </div>
-         <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
-        <Table query={query} currentPage={currentPage} />
-        </Suspense>
+            <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
+                <Table query={query} currentPage={currentPage} />
+            </Suspense>
         <div className="mt-5 flex w-full justify-center">
-         <Pagination totalPages={totalPages} />
+            <Pagination totalPages={totalPages} />
         </div>
-    </div>
+    </article>
     );
 }

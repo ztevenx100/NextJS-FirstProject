@@ -3,12 +3,13 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import { lusitana } from '@/app/ui/fonts';
 import { fetchLatestInvoices } from '@/app/lib/data';
+import { currentTheme } from '@/app/lib/theme';
 
 export default async function LatestInvoices() {
   const latestInvoices = await fetchLatestInvoices();
   return (
     <div className="flex w-full flex-col md:col-span-4">
-      <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
+      <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl ${currentTheme[8]} `}>
         Latest Invoices
       </h2>
       <div className="flex grow flex-col justify-between rounded-xl bg-gray-50 p-4">
